@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mangoes&Almonds Photography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        /* Header */
+        header {
+            background-color: #ffe5b4; /* Light mango color */
+            padding: 10px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header img {
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #d35400; /* Almond brown */
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: #d35400; /* Almond brown */
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('images/hero_image.jpg') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+
+        /* About, Services, and Contact Sections */
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #d35400;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section p {
+            font-size: 1rem;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Services Section */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .service-item {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .service-item h3 {
+            color: #d35400;
+            margin-top: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Contact Form */
+        .contact form {
+            max-width: 500px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact input, .contact textarea, .contact button {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact button {
+            background-color: #d35400;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact button:hover {
+            background-color: #e67e22;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        footer .social-icons img {
+            width: 30px;
+            margin: 0 10px;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+
+        footer .social-icons img:hover {
+            filter: grayscale(0%);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <img src="images/M&ALogo_small.png" alt="Mangoes&Almonds Logo">
+        <h1>Mangoes&Almonds Photography</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Where Memories Are Sweet as Mangoes & Almonds</h2>
+        <p>Capturing the essence of life’s sweetest moments, with love and creativity.</p>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <h2>About Me</h2>
+        <p>I'm Mukti Osta, founder of Mangoes&Almonds. I capture life’s sweetest moments, from candid snapshots to artistic portraits.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <h2>Services</h2>
+        <div class="service-grid">
+            <div class="service-item">
+                <img src="images/candid_photography.jpg" alt="Candid Photography">
+                <h3>Candid Photography</h3>
+            </div>
+            <div class="service-item">
+                <img src="images/food_photography.jpg" alt="Food Photography">
+                <h3>Food Photography</h3>
+            </div>
+            <!-- Additional service items as needed -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <h2>Contact Me</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Mangoes&Almonds Photography. All rights reserved.</p>
+        <div class="social-icons">
+            <img src="images/facebook_icon.png" alt="Facebook">
+            <img src="images/instagram_icon.png" alt="Instagram">
+            <img src="images/twitter_icon.png" alt="Twitter">
+        </div>
+    </footer>
+</body>
+</html>
