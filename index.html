@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mangoes&Almonds Photography</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: white; /* Set the background color back to white */
+            color: black; /* Change text color to black for readability */
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #ffe5b4; /* Soft mango yellow */
+        }
+
+        header img {
+            width: 100px; /* Adjusted size for the logo */
+            height: auto;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #d35400; /* Almond brown */
+            margin-left: 20px; /* Spacing between logo and title */
+        }
+
+        header h2 {
+            font-size: 1.5rem;
+            color: #8e44ad; /* Quirky purple */
+            font-style: italic;
+            margin-left: 20px; /* Spacing between title and tagline */
+        }
+
+        .whatsapp-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 150px; /* WhatsApp icon size */
+            height: auto;
+            z-index: 10; /* Ensure it's above other content */
+        }
+
+        .category {
+            margin: 20px;
+            text-align: center;
+            background-color: white; /* Set background color to white */
+            color: black; /* Change text color to black for readability */
+            padding: 20px; /* Add some padding for spacing */
+            border-radius: 10px; /* Optional: add rounded corners */
+        }
+
+        .category h2 {
+            color: #d35400;
+            margin-bottom: 10px;
+        }
+
+        .quirky-tagline {
+            font-size: 1.2rem;
+            color: #8e44ad; /* Quirky purple */
+            margin: 10px 0; /* Spacing for the tagline */
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px; /* Space between images */
+            padding: 10px;
+            width: 100%; /* Fill the entire width */
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Styles for the expanded image */
+        .expanded-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+        }
+
+        .expanded-image img {
+            max-width: 90%;
+            max-height: 90%;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffe5b4; /* Soft mango yellow */
+            margin-top: 20px; /* Space above the footer */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="images/M&ALogo.jpg" alt="Mangoes&Almonds Logo">
+        <div>
+            <h1>Mangoes&Almonds</h1>
+            <h2>"Where Memories are as Sweet as Mangoes & Almonds"</h2>
+        </div>
+        <a href="https://wa.me/12345678900" target="_blank">
+            <img src="images/whatsapp_icon.png" alt="WhatsApp" class="whatsapp-icon">
+        </a>
+    </header>
+
+    <section class="category" id="baby-shoot">
+        <h2>Baby Shoot</h2>
+        <p class="quirky-tagline">"Tiny toes and giggles galore!"</p>
+        <div class="gallery">
+            <img src="images/baby_shoot_1.jpg" alt="Baby Shoot 1" onclick="expandImage(this)">
+            <img src="images/baby_shoot_2.jpg" alt="Baby Shoot 2" onclick="expandImage(this)">
+            <img src="images/baby_shoot_3.jpg" alt="Baby Shoot 3" onclick="expandImage(this)">
+        </div>
+    </section>
+
+    <section class="category" id="professional">
+        <h2>Professional</h2>
+        <p class="quirky-tagline">"Capturing your best self!"</p>
+        <div class="gallery">
+            <img src="images/professional_1.jpg" alt="Professional 1" onclick="expandImage(this)">
+            <img src="images/professional_2.jpg" alt="Professional 2" onclick="expandImage(this)">
+            <img src="images/professional_3.jpg" alt="Professional 3" onclick="expandImage(this)">
+        </div>
+    </section>
+
+    <section class="category" id="food">
+        <h2>Food</h2>
+        <p class="quirky-tagline">"Deliciousness on a plate!"</p>
+        <div class="gallery">
+            <img src="images/food_1.jpg" alt="Food 1" onclick="expandImage(this)">
+            <img src="images/food_2.jpg" alt="Food 2" onclick="expandImage(this)">
+        </div>
+    </section>
+
+    <!-- Expanded image view -->
+    <div class="expanded-image" id="expandedImage" onclick="closeImage()">
+        <img id="fullImage" src="" alt="Expanded Image">
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Mangoes&Almonds. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function expandImage(img) {
+            const expandedImage = document.getElementById('expandedImage');
+            const fullImage = document.getElementById('fullImage');
+            fullImage.src = img.src; // Set the source of the expanded image
+            expandedImage.style.display = 'flex'; // Show the expanded image
+        }
+
+        function closeImage() {
+            const expandedImage = document.getElementById('expandedImage');
+            expandedImage.style.display = 'none'; // Hide the expanded image
+        }
+    </script>
+</body>
+</html>
