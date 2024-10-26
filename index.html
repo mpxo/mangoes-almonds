@@ -3,229 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Mangoes&Almonds Photography</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-            scroll-behavior: smooth;
         }
 
         body {
-            color: #333;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            background-color: white; /* Set the background color back to white */
+            color: black; /* Change text color to black for readability */
         }
 
-        /* Header */
         header {
-            background-color: #ffe5b4; /* Light mango color */
-            padding: 10px 40px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #ffe5b4; /* Soft mango yellow */
         }
 
         header img {
-            height: 60px;
-            margin-right: 15px;
+            width: 100px; /* Adjusted size for the logo */
+            height: auto;
         }
 
         header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: #d35400; /* Almond brown */
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 15px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-        }
-
-        nav ul li a:hover {
-            color: #d35400; /* Almond brown */
-        }
-
-        /* Hero Section */
-        .hero {
-            background: url('images/hero_image.jpg') no-repeat center center/cover;
-            color: #fff;
-            text-align: center;
-            padding: 100px 20px;
-        }
-
-        .hero h2 {
-            font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
+            color: #d35400; /* Almond brown */
+            margin-left: 20px; /* Spacing between logo and title */
+        }
+
+        header h2 {
+            font-size: 1.5rem;
+            color: #8e44ad; /* Quirky purple */
+            font-style: italic;
+            margin-left: 20px; /* Spacing between title and tagline */
+        }
+
+        .whatsapp-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 150px; /* WhatsApp icon size */
+            height: auto;
+            z-index: 10; /* Ensure it's above other content */
+        }
+
+        .category {
+            margin: 20px;
+            text-align: center;
+            background-color: white; /* Set background color to white */
+            color: black; /* Change text color to black for readability */
+            padding: 20px; /* Add some padding for spacing */
+            border-radius: 10px; /* Optional: add rounded corners */
+        }
+
+        .category h2 {
+            color: #d35400;
             margin-bottom: 10px;
         }
 
-        .hero p {
+        .quirky-tagline {
             font-size: 1.2rem;
-            margin-top: 10px;
-            font-weight: 300;
+            color: #8e44ad; /* Quirky purple */
+            margin: 10px 0; /* Spacing for the tagline */
         }
 
-        /* About, Services, and Contact Sections */
-        .section {
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        .section h2 {
-            font-size: 2rem;
-            color: #d35400;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .section p {
-            font-size: 1rem;
-            color: #555;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* Services Section */
-        .service-grid {
+        .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .service-item {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .service-item img {
-            width: 100%;
-            border-radius: 8px;
-        }
-
-        .service-item h3 {
-            color: #d35400;
-            margin-top: 15px;
-            font-size: 1.5rem;
-        }
-
-        /* Contact Form */
-        .contact form {
-            max-width: 500px;
-            margin: 20px auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .contact input, .contact textarea, .contact button {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px; /* Space between images */
             padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            width: 100%; /* Fill the entire width */
         }
 
-        .contact button {
-            background-color: #d35400;
-            color: #fff;
-            border: none;
+        .gallery img {
+            width: 100%;
+            height: auto;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: transform 0.3s ease;
         }
 
-        .contact button:hover {
-            background-color: #e67e22;
+        .gallery img:hover {
+            transform: scale(1.05);
         }
 
-        /* Footer */
+        /* Styles for the expanded image */
+        .expanded-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+        }
+
+        .expanded-image img {
+            max-width: 90%;
+            max-height: 90%;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+
         footer {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
             text-align: center;
-        }
-
-        footer .social-icons img {
-            width: 30px;
-            margin: 0 10px;
-            filter: grayscale(100%);
-            transition: filter 0.3s;
-        }
-
-        footer .social-icons img:hover {
-            filter: grayscale(0%);
+            padding: 20px;
+            background-color: #ffe5b4; /* Soft mango yellow */
+            margin-top: 20px; /* Space above the footer */
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header>
-        <img src="M&ALogo_small.png" alt="Mangoes&Almonds Logo">
-        <h1>Mangoes&Almonds Photography</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <img src="images/M&ALogo.jpg" alt="Mangoes&Almonds Logo">
+        <div>
+            <h1>Mangoes&Almonds</h1>
+            <h2>"Where Memories are as Sweet as Mangoes & Almonds"</h2>
+        </div>
+        <a href="https://wa.me/971565151486" target="_blank">
+            <img src="images/whatsapp_icon.png" alt="WhatsApp" class="whatsapp-icon">
+        </a>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h2>Where Memories Are Sweet as Mangoes & Almonds</h2>
-        <p>Capturing the essence of life’s sweetest moments, with love and creativity.</p>
-    </section>
-
-    <!-- About Section -->
-    <section class="section" id="about">
-        <h2>About Me</h2>
-        <p>I'm Mukti Osta, founder of Mangoes&Almonds. I capture life’s sweetest moments, from candid snapshots to artistic portraits.</p>
-    </section>
-
-    <!-- Services Section -->
-    <section class="section" id="services">
-        <h2>Services</h2>
-        <div class="service-grid">
-            <div class="service-item">
-                <img src="candid_photography.jpg" alt="Candid Photography">
-                <h3>Candid Photography</h3>
-            </div>
-            <div class="service-item">
-                <img src="images/food_photography.jpg" alt="Food Photography">
-                <h3>Food Photography</h3>
-            </div>
-            <!-- Additional service items as needed -->
+    <section class="category" id="baby-shoot">
+        <h2>Baby Shoot</h2>
+        <p class="quirky-tagline">"Tiny toes and giggles galore!"</p>
+        <div class="gallery">
+            <img src="images/baby_shoot_1.jpg" alt="Baby Shoot 1" onclick="expandImage(this)">
+            <img src="images/baby_shoot_2.jpg" alt="Baby Shoot 2" onclick="expandImage(this)">
+            <img src="images/baby_shoot_3.jpg" alt="Baby Shoot 3" onclick="expandImage(this)">
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="section contact" id="contact">
-        <h2>Contact Me</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
+    <section class="category" id="professional">
+        <h2>Professional</h2>
+        <p class="quirky-tagline">"Capturing your best self!"</p>
+        <div class="gallery">
+            <img src="images/professional_1.jpg" alt="Professional 1" onclick="expandImage(this)">
+            <img src="images/professional_2.jpg" alt="Professional 2" onclick="expandImage(this)">
+            <img src="images/professional_3.jpg" alt="Professional 3" onclick="expandImage(this)">
+        </div>
     </section>
 
-    <!-- Footer -->
+    <section class="category" id="food">
+        <h2>Food</h2>
+        <p class="quirky-tagline">"Deliciousness on a plate!"</p>
+        <div class="gallery">
+            <img src="images/food_1.jpg" alt="Food 1" onclick="expandImage(this)">
+            <img src="images/food_2.jpg" alt="Food 2" onclick="expandImage(this)">
+        </div>
+    </section>
+
+    <!-- Expanded image view -->
+    <div class="expanded-image" id="expandedImage" onclick="closeImage()">
+        <img id="fullImage" src="" alt="Expanded Image">
+    </div>
+
     <footer>
-        <p>&copy; 2024 Mangoes&Almonds Photography. All rights reserved.</p>
+        <p>&copy; 2024 Mangoes&Almonds. All rights reserved.</p>
     </footer>
+
+    <script>
+        function expandImage(img) {
+            const expandedImage = document.getElementById('expandedImage');
+            const fullImage = document.getElementById('fullImage');
+            fullImage.src = img.src; // Set the source of the expanded image
+            expandedImage.style.display = 'flex'; // Show the expanded image
+        }
+
+        function closeImage() {
+            const expandedImage = document.getElementById('expandedImage');
+            expandedImage.style.display = 'none'; // Hide the expanded image
+        }
+    </script>
 </body>
 </html>
